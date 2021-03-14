@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Clock
+        </title>
+        <link rel="stylesheet" href="To-Do List.css">
+    </head>
+
+    <body>
+    
+            
+        <div id="container">
+            <h1>To-Do List</h1>
+          <p id='p1' style="color:saddlebrown">Enter text into the field to add items to your list (max.28 characters)</p>
+          <p id='p2' style="color:darkgoldenrod">Click on the item to mark complete.</p>
+          <p id='p3' style="color:lightslategray">Double Click the item to remove it from your list.</p>
+     
+         
+          <input type="text" id="text" placeholder="New item...">
+          <button id="btn" onclick="a()">Add Item</button>
+          
+          <div id="tasks">
+              
+          </div>
+          
+    </body>
+
+    <script type="text/javascript">
+
+function a()
+{
+    var div=document.getElementById("tasks");
+    var value=document.getElementById("text").value;
+   
+    if(value.length>28)
+    {
+        alert("size more than 28 !!!!");
+    }
+    else{
+    var p=document.createElement('p');
+    p.innerText=value;
+    p.style="border:1px solid black; margin:10px; width:50%";
+    p.addEventListener("dblclick",function(){
+        p.remove();
+    })
+    p.addEventListener("click",function(){
+        p.style="background-color:green; width:50%;";
+    })
+    div.appendChild(p);
+    document.getElementById("text").value="";
+    }
+}
+   
+    </script>
+</html>
